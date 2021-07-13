@@ -71,7 +71,7 @@ class Passport
   def validate_passport_id
     return false unless @data.has_key? :pid
     passport_id = @data[:pid]
-    /\d{9}/.match(passport_id)
+    /^\d{9}$/.match(passport_id)
   end
 end
 
@@ -79,7 +79,7 @@ passports = []
 passportStr = ""
 File.open("input").each do |line|
   passportStr += line
-  if line.strip.empty?
+  if line.strip.empty? && !passportStr.strip.empty?
     passports << Passport.new(passportStr)
     passportStr = ""
   end
@@ -89,8 +89,7 @@ total_passports_count = passports.length
 valid_passports_count = passports.each.reduce(0) do |valid_count, passport|
   if passport.is_valid?
     valid_count += 1 
-    puts passport.data
-    puts ""
+    # puts passport.data
   end
   valid_count
 end
