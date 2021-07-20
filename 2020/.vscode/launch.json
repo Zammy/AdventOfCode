@@ -1,0 +1,12 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug Local",
+			"type": "Ruby",
+			"request": "launch",
+			"cwd": "${workspaceRoot}/${relativeFileDirname}",
+			"program": "${workspaceRoot}/${relativeFile}"
+		}
+	]
+}
