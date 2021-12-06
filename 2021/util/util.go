@@ -22,3 +22,13 @@ func ReadLines(filePath string) ([]string, error) {
 	}
 	return res, nil
 }
+
+func SliceCountTrue(slice []bool) int {
+	count := 0
+	for _, v := range slice {
+		if v {
+			count += 1
+		}
+	}
+	return count
+}
