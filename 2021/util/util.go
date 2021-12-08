@@ -3,6 +3,7 @@ package util
 import (
 	"bufio"
 	"os"
+	"strconv"
 )
 
 func ReadLines(filePath string) ([]string, error) {
@@ -31,4 +32,12 @@ func SliceCountTrue(slice []bool) int {
 		}
 	}
 	return count
+}
+
+func ParseInt(input string) int {
+	v, err := strconv.ParseInt(input, 0, 0)
+	if err != nil {
+		panic(err)
+	}
+	return int(v)
 }
