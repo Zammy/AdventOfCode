@@ -34,6 +34,22 @@ func SliceCountTrue(slice []bool) int {
 	return count
 }
 
+func SliceRemoveEmpty(slice []string) []string {
+	copy := []string{}
+	for _, v := range slice {
+		if v != "" {
+			copy = append(copy, v)
+		}
+	}
+	return copy
+}
+
+func SliceRemoveAtIndex(slice []string, index int) []string {
+	copy := slice[:index]
+	copy = append(copy, slice[index+1:len(slice)-1]...)
+	return copy
+}
+
 func ParseInt(input string) int {
 	v, err := strconv.ParseInt(input, 0, 0)
 	if err != nil {
